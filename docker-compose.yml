@@ -1,0 +1,79 @@
+## docker-compose up
+## docker rm -f $(docker ps -aq)
+## docker rmi $(docker images -a -q)
+##
+## docker-compose up --remove-orphans
+## docker-compose up
+## docker-compose run deploy bash
+##
+## docker-compose up -d
+##
+##
+##
+## docker-compose rm
+## docker-compose up -d
+##
+## docker-compose run -e BUILD=css nodejs
+## docker-compose run php
+## docker-compose run -e BUILD=js nodejs
+## docker-compose run yui
+## docker-compose run -e BUILD=gzip nodejs
+##
+##
+## https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes
+## https://www.tecmint.com/35-practical-examples-of-linux-find-command/
+version: "3.7"
+
+services:
+  #bash:
+  #  image: bash
+  #  command: bash --version
+
+  nodejs:
+#    image: node:alpine
+#    image: node:6.17.1
+    build: nodejs
+    container_name: nodejs
+    working_dir: /usr/app
+    restart: unless-stopped
+    volumes:
+      - ./node_modules:/usr/app/node_modules
+      - ./tools:/usr/app/tools
+      - ./bacchus-gui:/usr/app/deploy
+    command: bash -c "chmod +x tools/node.sh"
+    entrypoint: "tools/node.sh"
+    networks:
+     - app-network
+
+  php:
+    image: php:7.1-fpm
+    container_name: php
+    working_dir: /usr/app
+    restart: unless-stopped
+    volumes:
+      - ./tools:/usr/app/tools
+      - ./bacchus-gui:/usr/app/deploy
+    command: bash -c "chmod +x tools/php.sh"
+    entrypoint: "tools/php.sh"
+    networks:
+      - app-network
+
+  yui:
+    image: java:8
+    container_name: java
+    working_dir: /usr/app
+    restart: unless-stopped
+    volumes:
+      - ./tools:/usr/app/tools
+      - ./bacchus-gui:/usr/app/deploy
+    command: bash -c "chmod +x tools/yui.sh"
+    entrypoint: "tools/yui.sh"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+#volumes:
+#  node_modules:
