@@ -1,37 +1,9 @@
-## docker-compose up
-## docker rm -f $(docker ps -aq)
-## docker rmi $(docker images -a -q)
-##
-## docker-compose up --remove-orphans
-## docker-compose up
-## docker-compose run deploy bash
-##
-## docker-compose up -d
-##
-##
-##
-## docker-compose rm
-## docker-compose up -d
-##
-## docker-compose run -e BUILD=css nodejs
-## docker-compose run php
-## docker-compose run -e BUILD=js nodejs
-## docker-compose run yui
-## docker-compose run -e BUILD=gzip nodejs
-##
-##
-## https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes
-## https://www.tecmint.com/35-practical-examples-of-linux-find-command/
+
 version: "3.7"
 
 services:
-  #bash:
-  #  image: bash
-  #  command: bash --version
 
   nodejs:
-#    image: node:alpine
-#    image: node:6.17.1
     build: nodejs
     container_name: nodejs
     working_dir: /usr/app
