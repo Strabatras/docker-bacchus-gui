@@ -7,7 +7,7 @@ case "$BUILD" in
           ;;
      archive)
           chmod +x tools/gen-deploy-archive-gzip.sh &&
-          ./tools/gen-deploy-archive-gzip.sh.sh
+          ./tools/gen-deploy-archive-gzip.sh
           ;;
      *)
           echo -e

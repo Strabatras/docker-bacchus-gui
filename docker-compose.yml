@@ -24,6 +24,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./tools:/usr/app/tools
+      - ./deploy:/usr/app/output
       - ./bacchus-gui:/usr/app/deploy
     command: bash -c "chmod +x tools/php.sh"
     entrypoint: "tools/php.sh"

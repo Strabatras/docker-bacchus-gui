@@ -1,3 +1,4 @@
 /bacchus-gui/.gitignore
 /bacchus-gui/caduceus-orasql/
 /bacchus-gui/caduceus-phpweb/
+/deploy/*.*
