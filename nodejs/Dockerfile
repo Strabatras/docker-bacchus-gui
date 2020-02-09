@@ -1,7 +1,4 @@
-FROM node:8.0.0-alpine
+FROM node:latest
 
-RUN yarn global add less
-RUN yarn global add less-plugin-clean-css
-RUN yarn global add less-plugin-glob
-
-RUN apk add --no-cache --upgrade bash
+RUN exec apt-get update && sudo apt-get install -y unzip \
+                                                    bash

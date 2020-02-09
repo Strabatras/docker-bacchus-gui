@@ -18,7 +18,3 @@ echo '  Building dhtmlx.js..'
 java -jar ${YUI_COMPRESSOR} --type js  ${DHTMLX_JS} -o ${DHTMLX_JS}
 
 echo 'Done.'
-
-#  java -jar %YUI_COMPRESSOR% --type js  "%PRE_COMMON_JS%" -o "%PRE_COMMON_JS%"
-#  java -jar %YUI_COMPRESSOR% --type js  "%COMMON_JS%" -o "%COMMON_JS%"
-#  java -jar %YUI_COMPRESSOR% --type js  "%DHTMLX_JS%" -o "%DHTMLX_JS%"

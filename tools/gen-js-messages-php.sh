@@ -26,4 +26,3 @@ echo '  Deflating finished!'
 
 echo -e
 echo 'Building messages and macroses finished!'
-echo -e

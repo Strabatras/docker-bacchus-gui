@@ -9,7 +9,6 @@ services:
     working_dir: /usr/app
     restart: unless-stopped
     volumes:
-      - ./node_modules:/usr/app/node_modules
       - ./tools:/usr/app/tools
       - ./bacchus-gui:/usr/app/deploy
     command: bash -c "chmod +x tools/node.sh"
@@ -47,6 +46,3 @@ services:
 networks:
   app-network:
     driver: bridge
-
-#volumes:
-#  node_modules:

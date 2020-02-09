@@ -44,11 +44,12 @@ echo '  Create latest_deploy.cmd.txt file...'
 echo 'set FNAME='${ARCHIVE_NAME} > ${OUTPUT_FOLDER}'/'${FOLDER_NAME}'/latest_deploy.cmd.txt'
 
 echo '  Create '${ARCHIVE_NAME}' archive...'
+
 cd ${PROJECT_PATH} &&
 tar -czf ${OUTPUT_FOLDER}'/'${FOLDER_NAME}'/'${ARCHIVE_NAME} \
-                                                 ${TMBASE}'/' \
-                                              'dependencies/' \
-                                                    'config/'
+                                                ${TMBASE}'/' \
+                                             'dependencies/' \
+                                                   'config/'
 
 echo -e
 echo 'Done.';
